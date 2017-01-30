@@ -1,0 +1,15 @@
+div.four-squares.panels div.row {
+  clear:both;
+}
+
+div.four-squares.panels div.cell {
+  border: 1px solid black;
+  float:left;
+  padding: 1%;
+  width: 46%;
+}
+
+div.four-squares.panels div.row:nth-child(1) div.cell:nth-child(1),
+div.four-squares.panels div.row:nth-child(2) div.cell:nth-child(2){
+  background-color: pink;
+}

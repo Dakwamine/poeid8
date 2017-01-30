@@ -1,0 +1,19 @@
+name: Paragraphs
+type: module
+description: 'Enables the creation of paragraphs entities.'
+# core: 8.x
+package: Paragraphs
+
+dependencies:
+  - entity_reference_revisions:entity_reference_revisions
+test_dependencies:
+  - diff:diff
+  - replicate:replicate
+  - inline_entity_form:inline_entity_form
+  - field_group:field_group
+
+# Information added by Drupal.org packaging script on 2017-01-19
+version: '8.x-1.0+51-dev'
+core: '8.x'
+project: 'paragraphs'
+datestamp: 1484818986

@@ -1,0 +1,21 @@
+<header id="header" class="header" role="banner" aria-label="{{ 'Site header'|t }}">
+  <div class="section layout-container clearfix">
+	{{ page.secondary_menu }}
+	{{ page.header }}
+	{{ page.primary_menu }}
+  </div>
+</header>
+{% if page.highlighted %}
+  <div class="highlighted">
+	<aside class="layout-container section clearfix" role="complementary">
+	  {{ page.highlighted }}
+	</aside>
+  </div>
+{% endif %}
+{% if page.featured_top %}
+  <div class="featured-top">
+	<aside class="featured-top__inner section layout-container clearfix" role="complementary">
+	  {{ page.featured_top }}
+	</aside>
+  </div>
+{% endif %}

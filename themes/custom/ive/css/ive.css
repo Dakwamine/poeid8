@@ -1,0 +1,62 @@
+div.site-branding__name a {
+	color: orange;
+	font-size: 2rem;
+}
+
+#header {
+	background-color: #fff !important;
+	background-image: none !important;
+}
+
+body.path-frontpage h2.field-content a {
+	color: orange;
+	font-family: georgia;
+	font-size: 2rem;
+	text-transform: uppercase;
+}
+
+aside.section div.region div.block {
+	background-color: inherit;
+	border: 0px none;
+}
+
+aside.section div.region div.block h2 {
+	border-bottom-color: orange;
+	color: orange;
+	font-family: georgia;
+	font-style: italic;
+	text-transform: uppercase;
+}
+
+.region-primary-menu .menu a.is-active {
+	background-color: orange;
+	border-radius: 5px;
+	color: white;
+	font-weight: bold;
+}
+
+.region-primary-menu .menu a {
+	color: orange;
+}
+
+.region-header, .region-header a, .region-header li a.is-active, .site-branding__text, .site-branding, .site-branding__text a, .site-branding a, .region-secondary-menu .menu-item a, .region-secondary-menu .menu-item a.is-active {
+	color: orange;
+}
+
+article {
+	font-size: 80%;
+}
+
+body.page__node__1 main#content {
+    margin-left: 0%;
+    margin-right: 0%;
+    width: 100%;
+}
+
+div#block-modificationdetemplatepresentationdedrupal8 {
+	background-color: olive;
+}
+
+a.external::before {
+  content: url("../images/external-link.gif");
+}

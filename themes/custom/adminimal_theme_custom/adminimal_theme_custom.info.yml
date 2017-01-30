@@ -1,0 +1,13 @@
+name: Adminimal Custom
+type: theme
+description: 'Drupal administration theme with modern minimalist design, with fixes for admin toolbar module.'
+# core: 8.x
+base theme: adminimal_theme
+
+libraries:
+  - adminimal_theme_custom/global-styling
+
+# Information added by THE MASTER OF THE UNIVERSE(kwan) on 2017-01-26
+version: '8.x-1.3'
+core: '8.x'
+project: 'adminimal_theme_custom'

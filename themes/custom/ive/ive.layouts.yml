@@ -1,0 +1,16 @@
+four-squares:
+  label: Four Skwerz
+  category: Ive
+  path: layouts
+  template: four-squares
+  icon: four-squares.png
+  css: four-squares.css
+  regions:
+    topleft:
+      label: Top Left
+    topright:
+      label: Top Right
+    bottomleft:
+      label: Bottom Left
+    bottomright:
+      label: Bottom Right
