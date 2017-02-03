@@ -1,0 +1,23 @@
+hello.hello:
+  path: '/hello/{blob}'
+  defaults:
+    _title: 'Hello'
+    _controller: '\Drupal\hello\Controller\HelloController::content'
+    blob: ''
+  requirements:
+    _access: 'TRUE'
+hello.rss:
+  path: '/hello-rss'
+  defaults:
+    _title: 'Hello RSS!'
+    _controller: '\Drupal\hello\Controller\HelloRssController::content'
+  requirements:
+    _access: 'TRUE'
+hello.node.list:
+  path: '/hello/liste-noeuds/{nodeType}'
+  defaults:
+    _title: 'Node list!'
+    _controller: '\Drupal\hello\Controller\HelloNodeListController::content'
+    nodeType: ''
+  requirements:
+    _access: 'TRUE'

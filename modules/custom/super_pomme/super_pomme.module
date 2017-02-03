@@ -1,0 +1,16 @@
+<?php
+
+/**
+ * Implements hook_theme().
+ */
+function super_pomme_theme() {
+  return [
+    'super_pomme' => [
+      'template' => 'super-pomme',
+      'variables' => [
+        'content' => null,
+        'tata' => null,
+      ]
+    ],
+  ];
+}

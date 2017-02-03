@@ -1,0 +1,5 @@
+name: Super Pomme
+type: module
+description: Mon module pour une super pomme.
+core: 8.x
+package: PoEi

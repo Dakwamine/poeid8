@@ -43,3 +43,4 @@ core/phpcs.xml
 core/phpunit.xml
 
 fichier.txt
+/nbproject/private/

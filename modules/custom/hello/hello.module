@@ -1,0 +1,29 @@
+<?php
+
+/**
+ * Implements hook_help($route_name, \Drupal\Core\Routing\RouteMatchInterface $route_match)
+ * @param type $route_name
+ * @param \Drupal\Core\Routing\RouteMatchInterface $route_match
+ */
+function hello_help($route_name, \Drupal\Core\Routing\RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the hello module.
+    case 'help.page.hello':
+      return '<p>' . t('Hello is a test module. :)') . '</p>';
+  }
+}
+
+/**
+ * Implements hook_cron()
+ */
+function hello_cron() {
+  drupal_set_message(t('Error from Hello module! :P'), 'error');
+}
+
+/**
+ * Implements hook_user_login()
+ * @param AccountInformation $account
+ */
+function hello_user_login($account) {
+  drupal_set_message(t('Hello dear @username ! :P', array('@username' => $account->getAccountName())), 'error');
+}

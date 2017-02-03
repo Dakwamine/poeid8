@@ -1,0 +1,5 @@
+services:
+  super_pomme.default:
+    class: Drupal\super_pomme\DefaultService
+    arguments: []
+
