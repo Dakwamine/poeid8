@@ -5,4 +5,4 @@ hello.hello:
 hello.node.list:
   route_name: hello.node.list
   base_route: hello.hello
-  title: 'Node list'
+  title: 'Nodes list'
