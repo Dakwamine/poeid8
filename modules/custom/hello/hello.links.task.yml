@@ -1,1 +1,8 @@
-
+hello.hello:
+  route_name: hello.hello
+  base_route: hello.hello
+  title: 'Hi!'
+hello.node.list:
+  route_name: hello.node.list
+  base_route: hello.hello
+  title: 'Node list'
