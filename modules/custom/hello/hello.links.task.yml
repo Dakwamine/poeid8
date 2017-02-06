@@ -13,7 +13,6 @@ hello.calculator:
   base_route: hello.hello
   title: 'Kalkulator'
   
-  
 hello.node.update_history:
   route_name: hello.node.update_history
   base_route: entity.node.canonical

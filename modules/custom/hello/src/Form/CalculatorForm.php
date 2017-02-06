@@ -13,14 +13,19 @@ use Drupal\Core\Form\FormStateInterface;
 class CalculatorForm extends FormBase {
 
   public function buildForm(array $form, FormStateInterface $form_state): array {
-    $form['first_value'] = array(
+    $form['fieldset_calculator'] = [
+      '#type' => 'fieldset',
+      '#title' => t('Calculate here')
+    ];
+
+    $form['fieldset_calculator']['first_value'] = array(
       '#type' => 'number',
       '#title' => t('First value'),
       '#description' => t('Enter first value.'),
       '#required' => TRUE
     );
 
-    $form['operator'] = array(
+    $form['fieldset_calculator']['operator'] = array(
       '#type' => 'select',
       '#title' => t('Operation'),
       '#description' => t('Choose operation for processing.'),
@@ -32,17 +37,41 @@ class CalculatorForm extends FormBase {
       )
     );
 
-    $form['second_value'] = array(
+    $form['fieldset_calculator']['second_value'] = array(
       '#type' => 'number',
       '#title' => t('Second value'),
       '#description' => t('Enter second value.'),
       '#required' => TRUE
     );
 
-    $form['submit_button'] = array(
+    $form['fieldset_calculator']['result_type'] = array(
+      '#type' => 'select',
+      '#title' => t('Result type'),
+      '#description' => t('Choose the way to get the result.'),
+      '#options' => array(
+        '1' => $this->t('Message'),
+        '2' => $this->t('Another page'),
+        '3' => $this->t('Field in this form')
+      )
+    );
+
+    $form['fieldset_calculator']['submit_button'] = array(
       '#type' => 'submit',
       '#value' => t('Calculate')
     );
+
+    $tmp_result_value = $form_state->getTemporaryValue('tmp_result_value');
+    if (is_numeric($tmp_result_value)) {
+      $form['fieldset_result'] = [
+        '#type' => 'fieldset',
+        '#title' => t('Result')
+      ];
+
+      $form['fieldset_result']['result_value'] = [
+        //'#type' => 'markup', // <= valeur par défaut
+        '#markup' => $this->t('The result is: @result', ['@result' => $tmp_result_value]),
+      ];
+    }
 
     return $form;
   }
@@ -99,11 +128,29 @@ class CalculatorForm extends FormBase {
         break;
     }
 
-    drupal_set_message(t('Result is: @result', array('@result' => $result)));
+    switch ($form_state->getValue('result_type')) {
+      case 1:
+        drupal_set_message(t('Result is: @result', array('@result' => $result)));
 
 
-    // Rebuilds the form with the same values
-    $form_state->setRebuild();
+        // Rebuilds the form with the same values
+        $form_state->setRebuild();
+        break;
+
+      case 2:
+        $form_state->setRedirect('hello.calculator.result', ['result' => $result]);
+        break;
+
+      case 3:
+        // Save result to temporary value
+        $form_state->setTemporaryValue(['tmp_result_value'], $result);
+
+
+        // Rebuilds the form with the same values
+        $form_state->setRebuild();
+
+        break;
+    }
   }
 
 }

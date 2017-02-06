@@ -42,3 +42,12 @@ hello.calculator:
     _form: '\Drupal\hello\Form\CalculatorForm'
   requirements:
     _permission: 'access content'
+    
+hello.calculator.result:
+  path: '/hello/calculator/result/{result}'
+  defaults:
+    _title: 'Here is your result!'
+    _controller: '\Drupal\hello\Controller\HelloCalculatorResultController::content'
+    result: \d+
+  requirements:
+    _permission: 'access content'
