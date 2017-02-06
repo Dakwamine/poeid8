@@ -2,7 +2,19 @@ hello.hello:
   route_name: hello.hello
   base_route: hello.hello
   title: 'Hi!'
+  
 hello.node.list:
   route_name: hello.node.list
   base_route: hello.hello
   title: 'Nodes list'
+  
+hello.calculator:
+  route_name: hello.calculator
+  base_route: hello.hello
+  title: 'Kalkulator'
+  
+  
+hello.node.update_history:
+  route_name: hello.node.update_history
+  base_route: entity.node.canonical
+  title: 'Nodes update history!'

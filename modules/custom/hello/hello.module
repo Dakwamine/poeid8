@@ -27,3 +27,16 @@ function hello_cron() {
 function hello_user_login($account) {
   drupal_set_message(t('Hello dear @username ! :P', array('@username' => $account->getAccountName())), 'error');
 }
+
+function hello_node_update(Drupal\node\Entity\Node $entity) {
+  $database = \Drupal::database();
+
+  $database
+      ->insert('hello_node_history')
+      ->fields(array(
+        'nid' => $entity->id(),
+        'update_time' => $entity->getRevisionCreationTime(),
+        'uid' => $entity->getRevisionAuthor()->id()
+      ))
+      ->execute();
+}

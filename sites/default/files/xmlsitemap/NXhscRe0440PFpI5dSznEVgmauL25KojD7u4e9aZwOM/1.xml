@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet type="text/xsl" href="/drupal/fr/sitemap.xsl"?>
+<?xml-stylesheet type="text/xsl" href="/drupal/en/sitemap.xsl"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url><loc>http://user3.d8.lab/drupal/</loc><changefreq>daily</changefreq><priority>1.0</priority></url>
 <url><loc>http://user3.d8.lab/drupal/drupal/fr/node/925</loc><lastmod>2017-01-27T13:49Z</lastmod><changefreq>weekly</changefreq></url>
@@ -42,7 +42,7 @@
 <url><loc>http://user3.d8.lab/drupal/drupal/en/blog/imputo</loc><lastmod>2017-01-27T13:38Z</lastmod><changefreq>weekly</changefreq></url>
 <url><loc>http://user3.d8.lab/drupal/drupal/en/blog/interdico</loc><lastmod>2017-01-27T13:38Z</lastmod><changefreq>weekly</changefreq></url>
 <url><loc>http://user3.d8.lab/drupal/drupal/en/blog/interdico-suscipere</loc><lastmod>2017-01-27T13:38Z</lastmod><changefreq>weekly</changefreq></url>
-<url><loc>http://user3.d8.lab/drupal/drupal/en/blog/laoreet-nunc-volutpat</loc><lastmod>2017-01-27T13:38Z</lastmod><changefreq>weekly</changefreq></url>
+<url><loc>http://user3.d8.lab/drupal/drupal/en/blog/laoreet-nunc-volutpat</loc><lastmod>2017-02-03T15:24Z</lastmod><changefreq>hourly</changefreq></url>
 <url><loc>http://user3.d8.lab/drupal/drupal/en/blog/melior-praemitto-utrum-voco</loc><lastmod>2017-01-27T13:38Z</lastmod><changefreq>weekly</changefreq></url>
 <url><loc>http://user3.d8.lab/drupal/drupal/en/blog/melior-tation</loc><lastmod>2017-01-27T13:38Z</lastmod><changefreq>weekly</changefreq></url>
 <url><loc>http://user3.d8.lab/drupal/drupal/en/blog/minim</loc><lastmod>2017-01-27T13:38Z</lastmod><changefreq>weekly</changefreq></url>

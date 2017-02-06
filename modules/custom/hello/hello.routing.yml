@@ -6,6 +6,7 @@ hello.hello:
     blob: ''
   requirements:
     _access: 'TRUE'
+    
 hello.rss:
   path: '/hello-rss'
   defaults:
@@ -13,6 +14,7 @@ hello.rss:
     _controller: '\Drupal\hello\Controller\HelloRssController::content'
   requirements:
     _access: 'TRUE'
+    
 hello.node.list:
   path: '/hello/liste-noeuds/{nodeType}'
   defaults:
@@ -21,3 +23,22 @@ hello.node.list:
     nodeType: 'article'
   requirements:
     _access: 'TRUE'
+    
+hello.node.update_history:
+  path: '/node/{node}/update_history'
+  defaults:
+    _title: 'Node history!'
+    _controller: '\Drupal\hello\Controller\HelloNodeUpdateHistoryController::content'
+  requirements:
+    _permission: 'access content'
+    node: \d+
+  options:
+    _node_operation_route: TRUE
+    
+hello.calculator:
+  path: '/hello/calculator'
+  defaults:
+    _title: 'The magnificent Hello calculator!'
+    _form: '\Drupal\hello\Form\CalculatorForm'
+  requirements:
+    _permission: 'access content'
