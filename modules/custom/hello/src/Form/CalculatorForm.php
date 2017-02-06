@@ -2,8 +2,12 @@
 
 namespace Drupal\hello\Form;
 
+use Drupal\Core\Ajax\AjaxResponse;
+use Drupal\Core\Ajax\CssCommand;
+use Drupal\Core\Ajax\HtmlCommand;
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
+use function drupal_set_message;
 
 /**
  * Description of HelloCalculatorForm
@@ -19,10 +23,15 @@ class CalculatorForm extends FormBase {
     ];
 
     $form['fieldset_calculator']['first_value'] = array(
-      '#type' => 'number',
+      '#type' => 'textfield',
       '#title' => t('First value'),
       '#description' => t('Enter first value.'),
-      '#required' => TRUE
+      '#required' => TRUE,
+      '#ajax' => [
+        'callback' => [$this, 'validateFirstValue'],
+        'event' => 'change'
+      ],
+      '#suffix' => '<span id="edit-first-value-text-message"></span>'
     );
 
     $form['fieldset_calculator']['operator'] = array(
@@ -38,10 +47,15 @@ class CalculatorForm extends FormBase {
     );
 
     $form['fieldset_calculator']['second_value'] = array(
-      '#type' => 'number',
+      '#type' => 'textfield',
       '#title' => t('Second value'),
       '#description' => t('Enter second value.'),
-      '#required' => TRUE
+      '#required' => TRUE,
+      '#ajax' => [
+        'callback' => [$this, 'validateSecondValue'],
+        'event' => 'change'
+      ],
+      '#suffix' => '<span id="edit-second-value-text-message"></span>'
     );
 
     $form['fieldset_calculator']['result_type'] = array(
@@ -83,12 +97,12 @@ class CalculatorForm extends FormBase {
   public function validateForm(array &$form, FormStateInterface $form_state) {
     $first_value = $form_state->getValue('first_value');
     if (!is_numeric($first_value)) {
-      $form_state->setErrorByName('first_value', t('Field must be numerical!'));
+      $form_state->setErrorByName('first_value', t('Field must be numeric!'));
     }
 
     $second_value = $form_state->getValue('second_value');
     if (!is_numeric($second_value)) {
-      $form_state->setErrorByName('second_value', t('Field must be numerical!'));
+      $form_state->setErrorByName('second_value', t('Field must be numeric!'));
     }
 
     $operator = $form_state->getValue('operator');
@@ -151,6 +165,32 @@ class CalculatorForm extends FormBase {
 
         break;
     }
+  }
+
+  private function validateNumericValue(array &$form, FormStateInterface $form_state, $field_id) {
+    $fieldIdAsHtmlId = str_replace('_', '-', $field_id);
+    $value = $form_state->getValue($field_id);
+
+    $response = new AjaxResponse();
+
+    if (is_numeric($value)) {
+      $response->addCommand(new CssCommand('#edit-' . $fieldIdAsHtmlId, ['border' => '2px solid green']));
+      $response->addCommand(new HtmlCommand('#edit-' . $fieldIdAsHtmlId . '-text-message', ''));
+    }
+    else {
+      $response->addCommand(new CssCommand('#edit-' . $fieldIdAsHtmlId, ['border' => '2px solid red']));
+      $response->addCommand(new HtmlCommand('#edit-' . $fieldIdAsHtmlId . '-text-message', t('Value is not numeric!')));
+    }
+
+    return $response;
+  }
+
+  public function validateFirstValue(array &$form, FormStateInterface $form_state) {
+    return $this->validateNumericValue($form, $form_state, 'first_value');
+  }
+
+  public function validateSecondValue(array &$form, FormStateInterface $form_state) {
+    return $this->validateNumericValue($form, $form_state, 'second_value');
   }
 
 }
