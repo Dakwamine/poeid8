@@ -71,7 +71,17 @@ class CalculatorForm extends FormBase {
 
     $form['fieldset_calculator']['submit_button'] = array(
       '#type' => 'submit',
-      '#value' => t('Calculate')
+      '#value' => t('Calculate'),
+      '#states' => array(
+        'disabled' => array(
+          ':input[name="operator"]' => array('value' => 4),
+          ':input[name="second_value"]' => array('value' => '0')
+        ),
+        'invisble' => array(
+          ':input[name="operator"]' => array('value' => 4),
+          ':input[name="second_value"]' => array('value' => '0')
+        ),
+      ),
     );
 
     $tmp_result_value = $form_state->getTemporaryValue('tmp_result_value');
