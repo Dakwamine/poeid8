@@ -52,7 +52,12 @@ class HelloConfigForm extends ConfigFormBase {
     
     $this->configFactory->getEditable('hello.config')->set('color', $blocks_color);
     $this->configFactory->getEditable('hello.config')->save();
-
+    
+    // Reset cache to force new config
+    /* @var $tmp \Drupal\block\BlockViewBuilder */
+    $tmp = \Drupal::entityTypeManager()->getViewBuilder('block');
+    $tmp->resetCache();
+    
     parent::submitForm($form, $form_state);
   }
 

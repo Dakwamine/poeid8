@@ -40,3 +40,15 @@ function hello_node_update(Drupal\node\Entity\Node $entity) {
       ))
       ->execute();
 }
+
+/**
+ * Implements module_page_attachments_alter()
+ * @param array $attachments
+ */
+function hello_page_attachments_alter(array &$attachments) {
+  $attachments['#attached']['library'][] = 'hello/base';
+}
+
+function hello_preprocess_block(array &$variables) {
+  $variables['attributes']['class'][] = \Drupal::config('hello.config')->get('color');
+}
