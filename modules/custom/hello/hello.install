@@ -28,8 +28,9 @@ function hello_schema() {
         'not null' => TRUE,
       ),
       'uid' => array(
-        'description' => 'lalala uid!',
-        'type' => 'int(10)',
+        'description' => 'lalala uid',
+        'type' => 'int',
+        'length' => 10,
         'unsigned' => TRUE,
         'not null' => TRUE,
       )
@@ -47,9 +48,9 @@ function hello_update_8100() {
   $schema = Database::getConnection()->schema();
 
   $spec = array(
-    'description' => 'lalala uid!',
+    'description' => 'lalala uid',
     'type' => 'int',
-    'length'=> 10,
+    'length' => 10,
     'unsigned' => TRUE,
     'not null' => TRUE
   );

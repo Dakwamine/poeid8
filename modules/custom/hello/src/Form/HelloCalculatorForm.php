@@ -14,7 +14,7 @@ use function drupal_set_message;
  *
  * @author POE3
  */
-class CalculatorForm extends FormBase {
+class HelloCalculatorForm extends FormBase {
 
   public function buildForm(array $form, FormStateInterface $form_state): array {
     $form['fieldset_calculator'] = [

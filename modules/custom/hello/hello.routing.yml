@@ -39,7 +39,7 @@ hello.calculator:
   path: '/hello/calculator'
   defaults:
     _title: 'The magnificent Hello calculator!'
-    _form: '\Drupal\hello\Form\CalculatorForm'
+    _form: '\Drupal\hello\Form\HelloCalculatorForm'
   requirements:
     _permission: 'access content'
     
@@ -51,3 +51,11 @@ hello.calculator.result:
     result: \d+
   requirements:
     _permission: 'access content'
+    
+hello.system.blocks_color:
+  path: '/admin/appearance/blocks_color'
+  defaults:
+    _title: 'Appearance'
+    _form: '\Drupal\hello\Form\HelloConfigForm'
+  requirements:
+    _permission: 'administer themes'

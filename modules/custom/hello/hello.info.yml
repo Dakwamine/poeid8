@@ -1,3 +1,5 @@
 name: Hello
+description: 'My custom test module'
+package: 'Test'
 type: module
 core: 8.x

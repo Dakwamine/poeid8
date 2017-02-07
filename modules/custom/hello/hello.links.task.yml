@@ -17,3 +17,8 @@ hello.node.update_history:
   route_name: hello.node.update_history
   base_route: entity.node.canonical
   title: 'Nodes update history!'
+  
+hello.system.blocks_color:
+  route_name: hello.system.blocks_color
+  base_route: system.themes_page
+  title: 'Here you can change blocks color!'
