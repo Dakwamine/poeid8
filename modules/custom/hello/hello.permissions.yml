@@ -1,0 +1,14 @@
+hello.block.database.access:
+  title: 'Access Hello current session counter. :)'
+  description: 'A block which shows how many sessions are currently open.'
+  restrict access: 'true'
+
+hello.administer:
+  title: 'Administer Hello'
+  description: 'Because only the best can do it'
+  restrict access: 'true'
+  
+hello.access:
+  title: 'Access Hello things. :)'
+  description: 'Do you have the rights to access Hello stuff?'
+  restrict access: 'true'

@@ -1,0 +1,5 @@
+services:
+  access_check.hello:
+    class: Drupal\hello\Access\HelloMinAccountAgeInHoursAccess
+    tags:
+      - { name: access_check, applies_to: _hello_min_account_age_in_hours }

@@ -52,3 +52,101 @@ function hello_page_attachments_alter(array &$attachments) {
 function hello_preprocess_block(array &$variables) {
   $variables['attributes']['class'][] = \Drupal::config('hello.config')->get('color');
 }
+
+/**
+ * Implements hook_theme()
+ */
+function hello_theme($existing, $type, $theme, $path) {
+  return [
+    'hello_node_history' => [
+      'template' => 'hello-node-history',
+      'variables' => [
+        'count' => NULL,
+        'nodename' => NULL
+      ]
+    ]
+  ];
+}
+
+/**
+ * Implements hook_form_alter()
+ */
+function hello_form_alter(array &$form, \Drupal\Core\Form\FormStateInterface &$form_state, $form_id) {
+  echo 'hello_form_alter<br/>';
+  //kint($form);
+  //kint($form_state);
+  //kint($form_id);
+
+  switch ($form_id) {
+    case 'contact_message_feedback_form':
+      $form['hello_fieldset'] = [
+        '#type' => 'fieldset',
+        '#title' => t('Hello additional fields'),
+        '#weight' => -20
+      ];
+
+      $form['hello_fieldset']['phone'] = array(
+        '#type' => 'textfield',
+        '#title' => t('Phone please'),
+        '#description' => t('Enter your phone number.')
+      );
+
+      $form['actions']['submit']['#value'] = t('Send message now');
+
+      //kint($form);
+      // Remove subject field
+      unset($form['subject']);
+
+
+      // Add additional validateForm() to add again subject
+      //kint($form);
+      //kint($form['actions']['submit']);
+      //$old = $form['actions']['submit']['#validate'];
+      $form['actions']['submit']['#validate'][] = 'hll';
+
+
+      //kint($form['actions']['submit']['#submit']);
+      $old = $form['actions']['submit']['#submit'];
+      $form['actions']['submit']['#submit'] = ['gna'];
+      foreach ($old as $e) {
+        $form['actions']['submit']['#submit'][] = $e;
+      }
+      //kint($form['actions']['submit']['#submit']);
+      //kint($form);
+
+
+      break;
+  }
+}
+
+function hll(array &$form, \Drupal\Core\Form\FormStateInterface $form_state) {
+  echo 'hll<br/>';
+  //kint($form);
+  $form['subject'] = [
+    '#type' => 'textfield',
+    '#default' => 'Default subject'
+  ];
+  //kint($form);
+  ///kint($form_state);
+  // kint('message');
+  // $tmp = $form_state->getValue('message');
+  // kint($tmp[0]['value']);
+  // kint('phone');
+  //kint($form_state->getValue('phone'));
+//  die;
+}
+
+function gna(array &$form, \Drupal\Core\Form\FormStateInterface $form_state) {
+  echo 'gna<br/>';
+  
+  //kint($form_state);
+
+  // Next line is working!
+  //$form_state->setValue (['message'], [['value' => 'oeigjoizgiozpngizp']]);
+  
+  $form_state->setValue (['message'], [['value' => $form_state->getValue('message')[0]['value'] . "\n\n" . t('Phone: @phone', array('@phone' => $form_state->getValue('phone')))]]);
+  
+  //$form['message'] = 'peianp';
+  //kint($form_state);
+  //die;
+}

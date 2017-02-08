@@ -2,9 +2,11 @@
 
 namespace Drupal\hello\Plugin\Block;
 
+use Drupal\Core\Access\AccessResult;
 use Drupal\Core\Block\BlockBase;
 use Drupal\Core\Database\Connection;
 use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
+use Drupal\Core\Session\AccountInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
@@ -18,7 +20,7 @@ class HelloDatabase extends BlockBase implements ContainerFactoryPluginInterface
 
   /**
    * Contains the database service.
-   * @var Drupal\Core\Database\Connection
+   * @var Connection
    */
   protected $database;
 
@@ -58,6 +60,14 @@ class HelloDatabase extends BlockBase implements ContainerFactoryPluginInterface
   public static function create(ContainerInterface $container, array $configuration, $plugin_id, $plugin_definition) {
     return new static(
         $container->get('database'), $configuration, $plugin_id, $plugin_definition);
+  }
+
+  protected function blockAccess(AccountInterface $account) {
+    if($account->hasPermission('hello.block.database.access')) {
+      return AccessResult::allowed();
+    }
+    
+    return AccessResult::forbidden();
   }
 
 }

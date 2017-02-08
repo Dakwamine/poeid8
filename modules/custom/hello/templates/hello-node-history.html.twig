@@ -1,0 +1,11 @@
+<span>
+  {% if count == 1 %}
+    {% trans %}
+      The node <em>{{ nodename }}</em> has been updated once!
+    {% endtrans %}
+  {% else %}
+    {% trans %}
+      The node <em>{{ nodename }}</em> has been updated {{ count }} times!
+    {% endtrans %}
+  {% endif %}
+</span>

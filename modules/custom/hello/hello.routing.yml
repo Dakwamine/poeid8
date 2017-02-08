@@ -41,7 +41,7 @@ hello.calculator:
     _title: 'The magnificent Hello calculator!'
     _form: '\Drupal\hello\Form\HelloCalculatorForm'
   requirements:
-    _permission: 'access content'
+    _permission: 'hello.access'
     
 hello.calculator.result:
   path: '/hello/calculator/result/{result}'
@@ -58,4 +58,12 @@ hello.system.blocks_color:
     _title: 'Appearance'
     _form: '\Drupal\hello\Form\HelloConfigForm'
   requirements:
-    _permission: 'administer themes'
+    _permission: 'hello.administer'
+    
+hello.custom_access:
+  path: '/custom_access'
+  defaults:
+    _title: 'Page with custom access check'
+    _controller: '\Drupal\hello\Controller\HelloRouteWithCustomAccessController::content'
+  requirements:
+    _hello_min_account_age_in_hours: '48'

@@ -56,8 +56,42 @@ class HelloNodeUpdateHistoryController extends ControllerBase {
         '#header' => array('Username', 'Updated on'),
         '#rows' => $rows
       );
+      
+      // Get node name
+      $nodeobj = $this->entityTypeManager->getStorage('node')->load($node);
+      $nodename = $nodeobj->get('title')->getString();
 
-      return array($table);
+      // Updates count render array, markup style
+      /*$updatesCount = [];
+
+      switch (count($result)) {
+        case 1:
+          $updatesCount = array(
+            '#markup' => $this->t(
+              'The node <em>@nodename</em> has been updated once.',
+              array('@nodename' => $nodename)
+            )
+          );
+          break;
+
+        default:
+          $updatesCount = array(
+            '#markup' => $this->t(
+              'The node <em>@nodename</em> has been updated @count times.',
+              array('@nodename' => $nodename, '@count' => count($result))
+            )
+          );
+          break;
+      }*/
+      
+      // Updates count render array, hook_theme style
+      $updatesCount = [
+        '#theme' => 'hello_node_history',
+        '#nodename' => $nodename,
+        '#count' => count($result)
+      ];
+      
+      return array($updatesCount, $table);
     }
     else {
       return array('#markup' => $this->t('There is no update history for this node.'));
