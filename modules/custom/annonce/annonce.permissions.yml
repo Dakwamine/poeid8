@@ -1,0 +1,4 @@
+view Annonce entity:
+  title: 'View Annonce collection.'
+administer Annonce entity:
+  title: 'Administer Annonce entity.'

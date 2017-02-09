@@ -1,0 +1,22 @@
+uuid: b703b33c-2478-4f72-b2a4-c344edec2770
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.annonce.field_annonce_champ
+  module:
+    - annonce
+    - text
+id: annonce.annonce.field_annonce_champ
+field_name: field_annonce_champ
+entity_type: annonce
+bundle: annonce
+label: 'Annonce champ'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text
+

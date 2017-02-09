@@ -1,0 +1,38 @@
+uuid: d9113821-9932-4b73-a8d4-d85066fe3fb8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.annonce.annonce.field_annonce_champ
+  module:
+    - annonce
+    - text
+id: annonce.annonce.default
+targetEntityType: annonce
+bundle: annonce
+mode: default
+content:
+  field_annonce_champ:
+    weight: 6
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textfield
+  name:
+    type: string_textfield
+    weight: -4
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  user_id:
+    type: entity_reference_autocomplete
+    weight: 5
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden: {  }
+

@@ -1,0 +1,17 @@
+#entity.annonce.collection:
+#  title: 'Annonce: Listing'
+#  route_name: entity.annonce.collection
+#  description: 'List Annonce'
+
+annonce.admin.structure.settings:
+  title: Annonce Settings
+  description: 'Configure Annonce entity'
+  route_name:  annonce.settings
+  parent: system.admin_structure
+
+entity.annonce.collection:
+  title: 'Annonce: Listing'
+  route_name: entity.annonce.collection
+  parent: system.admin_content
+  description: 'List Annonce'
+
