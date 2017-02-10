@@ -1,0 +1,36 @@
+<?php
+
+/**
+ * @file
+ * Contains poei.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function poei_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the poei module.
+    case 'help.page.poei':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('My Awesome Module') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function poei_theme() {
+  return [
+    'poei' => [
+      'template' => 'poei',
+      'render element' => 'children',
+    ],
+  ];
+}

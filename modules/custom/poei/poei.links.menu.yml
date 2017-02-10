@@ -1,0 +1,7 @@
+poei.bleu_rouge_vert_form:
+  title: 'BleuRougeVertForm'
+  route_name: poei.bleu_rouge_vert_form
+  description: 'Menu link desciripinio rvb'
+  parent: system.admin_config_system
+  weight: 99
+

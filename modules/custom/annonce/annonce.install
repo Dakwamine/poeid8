@@ -1,0 +1,27 @@
+<?php
+
+/**
+ * Implements hook_schema().
+ */
+function annonce_schema() {
+  $schema['annonce_history'] = [
+    'description' => 'Stores the annonces viewed by each user.',
+    'fields' => [
+      'uid' => [
+        'description' => 'User id',
+        'type' => 'int',
+        'length' => 10,
+        'unsigned' => true,
+        'not null' => true
+      ],
+      'annonce_id'=> [
+        'description' => 'Id of the annonce viewed by the user.',
+        'type' => 'int',
+        'length' => 11,
+        'not null' => true
+      ]
+    ]
+  ];
+  
+  return $schema;
+}

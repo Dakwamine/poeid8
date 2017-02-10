@@ -1,0 +1,19 @@
+
+poei.poei_controller_hello:
+  path: '/poei'
+  defaults:
+    _controller: '\Drupal\poei\Controller\PoeiController::hello'
+    _title: 'Method Tiiiitle'
+  requirements:
+    _permission: 'access content'
+
+poei.bleu_rouge_vert_form:
+  path: '/admin/config/poei/brv'
+  defaults:
+    _form: '\Drupal\poei\Form\BleuRougeVertForm'
+    _title: 'BleuRougeVertForm'
+  requirements:
+    _permission: 'access administration pages'
+  options:
+    _admin_route: TRUE
+
