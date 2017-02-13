@@ -7,6 +7,8 @@ dependencies:
   module:
     - annonce
     - user
+_core:
+  default_config_hash: yXwbjf4Ad6yDjlCdWnW_3oXr3eryABsmH7m6XsxGXQw
 id: annonce_historut
 label: 'Annonce historut'
 module: views
@@ -26,7 +28,7 @@ display:
         type: none
         options: {  }
       cache:
-        type: tag
+        type: none
         options: {  }
       query:
         type: views_query

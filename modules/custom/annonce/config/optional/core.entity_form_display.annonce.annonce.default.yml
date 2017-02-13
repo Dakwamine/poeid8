@@ -8,7 +8,7 @@ dependencies:
     - annonce
     - text
 _core:
-  default_config_hash: FR0jNYJhciE5BPq2ruUuvdoL2En1EherSdW-Kodt_Fk
+  default_config_hash: DniKtPsjzpQkNLjElpovaeT5VjAUMm_mtFyIbzQTTuY
 id: annonce.annonce.default
 targetEntityType: annonce
 bundle: annonce

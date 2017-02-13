@@ -8,7 +8,7 @@ dependencies:
     - annonce
     - text
 _core:
-  default_config_hash: u85Yc79miHdJQQw6tZ-q6rYzr9AR5Vqqg9tpgBXVsPU
+  default_config_hash: 3GmoC54wVe6ExIrtMhiNMcBrXf3TRbLM1ZK9Qd7ERrk
 id: annonce.annonce.field_annonce_champ
 field_name: field_annonce_champ
 entity_type: annonce

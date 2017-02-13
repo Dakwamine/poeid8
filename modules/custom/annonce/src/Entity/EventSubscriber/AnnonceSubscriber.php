@@ -84,9 +84,6 @@ class AnnonceSubscriber implements EventSubscriberInterface {
             ->condition('annonce_id', $currentAnnonce->id())
             ->execute();
       }
-      
-      // Remove cache
-      
     }
   }
 
