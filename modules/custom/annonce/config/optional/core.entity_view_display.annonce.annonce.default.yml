@@ -1,5 +1,5 @@
 uuid: 52363c35-966b-4022-9cc1-c3e7eda4e3b8
-langcode: en
+langcode: fr
 status: true
 dependencies:
   config:
@@ -8,6 +8,8 @@ dependencies:
     - annonce
     - text
     - user
+_core:
+  default_config_hash: gYbpUpLJWZ7n5E0nCTbPY_ERmja74w6hjjq5mRqH_pE
 id: annonce.annonce.default
 targetEntityType: annonce
 bundle: annonce

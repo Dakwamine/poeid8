@@ -23,3 +23,9 @@ entity.annonce.collection:
   route_name: entity.annonce.collection
   base_route:  system.admin_content
   description: 'List Annonce'
+
+entity.annonce.annonce_history:
+  title: 'Annonce histoli'
+  route_name: view.annonce_historut.page_1
+  base_route:  annonce.settings
+  description: 'Annonce historyyyy'

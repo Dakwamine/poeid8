@@ -1,5 +1,5 @@
 uuid: b703b33c-2478-4f72-b2a4-c344edec2770
-langcode: en
+langcode: fr
 status: true
 dependencies:
   config:
@@ -7,6 +7,8 @@ dependencies:
   module:
     - annonce
     - text
+_core:
+  default_config_hash: u85Yc79miHdJQQw6tZ-q6rYzr9AR5Vqqg9tpgBXVsPU
 id: annonce.annonce.field_annonce_champ
 field_name: field_annonce_champ
 entity_type: annonce

@@ -65,15 +65,28 @@ class AnnonceSubscriber implements EventSubscriberInterface {
               ->fields('ah', array('uid'))
               ->condition('uid', $this->currentUser->id())
               ->condition('annonce_id', $currentAnnonce->id())
+              ->range(0, 1)
               ->execute()->fetchAll();
 
       if (count($result) == 0) {
         // Add entry
         $this->database
             ->insert('annonce_history')
-            ->fields(['uid', 'annonce_id'], [$this->currentUser->id(), $currentAnnonce->id()])
+            ->fields(['uid', 'annonce_id', 'access_time'], [$this->currentUser->id(), $currentAnnonce->id(), time()])
             ->execute();
       }
+      else {
+        // Update entry
+        $this->database
+            ->update('annonce_history')
+            ->fields(['access_time' => time()])
+            ->condition('uid', $this->currentUser->id())
+            ->condition('annonce_id', $currentAnnonce->id())
+            ->execute();
+      }
+      
+      // Remove cache
+      
     }
   }
 

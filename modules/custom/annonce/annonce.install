@@ -19,6 +19,13 @@ function annonce_schema() {
         'type' => 'int',
         'length' => 11,
         'not null' => true
+      ],
+      'access_time'=> [
+        'description' => 'Timestamp when the annonce was accessed.',
+        'type' => 'int',
+        'length' => 10,
+        'unsigned' => true,
+        'not null' => true
       ]
     ]
   ];

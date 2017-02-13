@@ -1,10 +1,12 @@
 uuid: 74bbcb45-dbe7-483b-9ec0-d812640aa077
-langcode: en
+langcode: fr
 status: true
 dependencies:
   module:
     - annonce
     - text
+_core:
+  default_config_hash: a7bzsF-5wj93lsAc-HnLRx9Pwbt-gWhdBELr7hL5NoI
 id: annonce.field_annonce_champ
 field_name: field_annonce_champ
 entity_type: annonce
