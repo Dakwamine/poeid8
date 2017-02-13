@@ -1,0 +1,42 @@
+<?php
+
+/**
+ * Implements hook_theme().
+ */
+function annonce_theme() {
+  return [
+    'annonce' => [
+      'template' => 'annonce',
+      'render element' => 'children'
+    ]
+  ];
+}
+
+function template_preprocess_annonce(&$variables) {
+  // Récupérer les données annonce
+  //kint($variables);die;
+  //$annonce = $variables['children']['#annonce'];
+  // Helpful $content variable for templates.
+  //$variables += array('content' => array());
+  foreach (Drupal\Core\Render\Element::children($variables['children']) as $key) {
+    $variables['content'][$key] = $variables['children'][$key];
+  }
+  $variables['annonce'] = $variables['children']['#annonce'];
+  //kint($variables['annonce']);
+}
+
+/**
+ * Implements hook_theme_suggestions_HOOK() for annonce templates.
+ */
+function annonce_theme_suggestions_annonce(array $variables) {
+  /* @var $annonce \Drupal\annonce\Entity\Annonce */
+  $annonce = $variables['children']['#annonce'];
+
+  $suggestions = [];
+  $suggestions[] = 'annonce__' . $annonce->bundle();
+  $suggestions[] = 'annonce__' . $annonce->bundle() . '__' . $variables['children']['#view_mode'];
+  $suggestions[] = 'annonce__' . $annonce->id();
+  $suggestions[] = 'annonce__' . $annonce->id() . '__' . $variables['children']['#view_mode'];
+
+  return $suggestions;
+}
