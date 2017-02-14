@@ -1,0 +1,34 @@
+<?php
+
+/**
+ * Implements hook_schema().
+ */
+function email_form_schema() {
+  $schema['email_form_registered_emails'] = [
+    'description' => 'Stores the email address registered by EmailForm.',
+    'fields' => [
+      'uid' => [
+        'description' => 'User id',
+        'type' => 'int',
+        'length' => 10,
+        'unsigned' => true,
+        'not null' => true
+      ],
+      'nid'=> [
+        'description' => 'Id of the node on which the user registered his email address.',
+        'type' => 'int',
+        'length' => 11,
+        'not null' => true
+      ],
+      'email'=> [
+        'description' => 'User email address.',
+        'type' => 'varchar',
+        'length' => 254,
+        'not null' => true
+      ]
+    ]
+  ];
+  
+  return $schema;
+}
+

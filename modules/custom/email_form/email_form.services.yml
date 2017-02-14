@@ -1,0 +1,4 @@
+#services:
+#  plugin.manager.email_form:
+#    class: Drupal\email_form\Plugin\EmailFormManager
+#    parent: default_plugin_manager
