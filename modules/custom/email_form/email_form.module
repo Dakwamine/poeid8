@@ -1,0 +1,39 @@
+<?php
+
+/**
+ * Implements hook_mail().
+ */
+function email_form_mail($key, array &$message, array $params) {
+  switch ($key) {
+    case 'email_form_mail':
+      $message['from'] = 'user3@localhost';
+      $message['subject'] = t('Email sent from Email Form module.');
+      $message['body'][] = check_markup(t('Article @title (@nid) at @url has been updated.', ['@url' => $params['article_url'], '@title' => $params['article_title'], '@nid' => $params['article_id']]));
+      break;
+  }
+}
+
+function email_form_node_update(Drupal\Core\Entity\EntityInterface $currentNode) {
+  //kint(base_path() . $currentNode->toUrl()->toString());
+  //kint($currentNode->label());
+  //die;
+
+  /* @var $database Drupal\Core\Database\Connection */
+  $database = \Drupal::service('database');
+
+  $result = $database
+          ->select('email_form_registered_emails', 'efre')
+          ->fields('efre', array('email'))
+          ->condition('nid', $currentNode->id())
+          ->execute()->fetchAll();
+
+  foreach ($result as $row) {
+    $params['article_title'] = $currentNode->label();
+    $params['article_id'] = $currentNode->id();
+    $params['article_url'] = 'http://user3.d8.lab' . $currentNode->toUrl()->toString();
+    
+    /* @var $mailManager Drupal\Core\Mail\MailManager */
+    $mailManager = \Drupal::service('plugin.manager.mail');
+    $mailManager->mail('email_form', 'email_form_mail', $row->email, 'en', $params);
+  }
+}
